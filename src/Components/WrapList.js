@@ -9,6 +9,9 @@ function WrapList() {
   const [currentPlayer, setCurrentPlayer] = useState([]);
   // const [videoID, setVideoID] = useState("CMNry4PE93Y");
 
+  // const current = (e) => {
+  //   e;
+  // };
   const getSongs = async () => {
     axios
       .get(`http://localhost:3000/${query}`)
@@ -27,35 +30,37 @@ function WrapList() {
   const updateSearch = (e) => {
     setSearch(e.target.value);
   };
-
   const getSearch = (e) => {
     e.preventDefault();
     setQuery(search);
   };
   return (
-    <div className="wrap">
-      <div className="search">
-        <input
-          type="text"
-          className="searchTerm"
-          placeholder="What are you looking for?"
-          value={search}
-          onChange={updateSearch}
-        />
-        <button onClick={getSearch} type="submit" className="searchButton">
-          <i className="fa fa-search"></i>
-        </button>
-      </div>
-      <div className="wrap-list">
-        {songs.map((song) => (
-          <Songs
-            onClick={setCurrentPlayer(this)}
-            songName={song.name}
-            artistName={song.album.name}
-            thumbnail={song.thumbnails[0].url}
+    <div className="left">
+      <div className="wrap">
+        <div className="search">
+          <input
+            type="text"
+            className="searchTerm"
+            placeholder="What are you looking for?"
+            value={search}
+            onChange={updateSearch}
           />
-        ))}
+          <button onClick={getSearch} type="submit" className="searchButton">
+            <i className="fa fa-search"></i>
+          </button>
+        </div>
+        <div className="wrap-list">
+          {songs.map((song) => (
+            <Songs
+              // onClick={setCurrentPlayer(this)}
+              songName={song.name}
+              artistName={song.album.name}
+              thumbnail={song.thumbnails[0].url}
+            />
+          ))}
+        </div>
       </div>
+      <div class="record-vending-slot"></div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .App {
     margin: 0;
-    background: #343a40;
+    /* background: #343a40; */
+    background-image: url("https://media.discordapp.net/attachments/887411616700842055/896113036060946482/background.jpeg");
     font-family: "Open Sans", sans-serif;
     display: flex;
     width: 100%;
@@ -21,19 +22,23 @@
 
 .searchTerm {
     width: 100%;
-    border: 3px solid white;
+    border: 3px solid rgb(255, 255, 255);
     border-right: none;
     padding: 5px;
     height: 36px;
     border-radius: 5px 0 0 5px;
     outline: none;
-    color: #9dbfaf;
+    color: #ffffff;
     background-color: #343a40;
     margin-bottom: 20px;
 }
 
+.searchTerm::placeholder {
+    color: white;
+}
+
 .searchTerm:focus {
-    color: #343a40;
+    color: #ffffff;
 }
 
 .searchButton {
@@ -51,27 +56,35 @@
 
 /*Resize the wrap to see the search bar change!*/
 
-.wrap {
+.left {
     width: 50%;
-    height: 80%;
-    border: 3px solid white;
     padding: 10px;
+    height: 60vh;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+
+.wrap {
+    width: 100%;
+    height: 80vh;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 10px;
+    padding-bottom: 50px;
     object-fit: contain;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     display: flex;
-    margin: auto 60px;
 }
 
 .song {
     width: 100%;
     color: black;
     background: white;
-    padding: 0 5px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .song-text {
@@ -80,18 +93,28 @@
 }
 
 .record-img {
-    width: 60px;
+    width: 80px;
 }
 
 .player {
     width: 50%;
+    height: 88%;
+    margin: auto 0;
     padding: 0 80px;
 }
 
 .img-record {
     border-radius: 50%;
     overflow: hidden;
-    max-width: 300px;
+    max-width: 400px;
+    animation: player 4s infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes player {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .player-container {
@@ -220,4 +243,13 @@
     height: 30%;
     justify-content: space-around;
     background: white;
+}
+
+.record-vending-slot {
+    border-style: solid;
+    border-radius: 100px;
+    margin-top: 20px;
+    width: 100%;
+    height: 6vh;
+    background-color: white;
 }

@@ -7,7 +7,7 @@ function Player() {
       <div className="player-container">
         <div className="player-square">
           <img
-            src="https://alikinvv.github.io/minimal-player/build/img/album.jpg"
+            src="https://pngimg.com/uploads/vinyl/vinyl_PNG91.png"
             className="img-record"
           />
         </div>
