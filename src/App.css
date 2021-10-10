@@ -1,38 +1,223 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .App {
-  text-align: center;
+    margin: 0;
+    background: #343a40;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    width: 100%;
+    padding: 0;
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.searchTerm {
+    width: 100%;
+    border: 3px solid white;
+    border-right: none;
+    padding: 5px;
+    height: 36px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9dbfaf;
+    background-color: #343a40;
+    margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.searchTerm:focus {
+    color: #343a40;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 3px solid white;
+    background: #343a40;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/*Resize the wrap to see the search bar change!*/
+
+.wrap {
+    width: 50%;
+    height: 80%;
+    border: 3px solid white;
+    padding: 10px;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    display: flex;
+    margin: auto 60px;
+}
+
+.song {
+    width: 100%;
+    color: black;
+    background: white;
+    padding: 0 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.song-text {
+    line-height: 3px;
+    padding: 5px 10px;
+}
+
+.record-img {
+    width: 60px;
+}
+
+.player {
+    width: 50%;
+    padding: 0 80px;
+}
+
+.img-record {
+    border-radius: 50%;
+    overflow: hidden;
+    max-width: 300px;
+}
+
+.player-container {
+    width: 100%;
+    height: 200px;
+    background: yellow;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.player_prev {
+    transform: rotate(180deg);
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    margin-right: 3px;
+}
+
+.player_prev:hover {
+    background: #d7dce2;
+}
+
+.player_prev:hover svg {
+    fill: #fff;
+}
+
+.player__play {
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    margin-right: 3px;
+    position: relative;
+}
+
+.player__play:hover {
+    background: #d7dce2;
+}
+
+.player__play:hover svg {
+    fill: #fff;
+}
+
+.player__play svg {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player__play .pause {
+    display: none;
+}
+
+.player__next {
+    cursor: pointer;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+    margin-left: -8px;
+}
+
+.player__next:hover {
+    background: #d7dce2;
+}
+
+.player__next:hover svg {
+    fill: #fff;
+}
+
+.player__timeline {
+    background: white;
+    position: relative;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player__timelineBar {
+    background: #e7e7e7;
+    width: 100%;
+    height: 4px;
+    border-radius: 15px;
+    margin-top: 20px;
+    position: relative;
+}
+
+#playhead {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    width: 0;
+    height: 100%;
+    background: #fd6d94;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-around;
+    background: white;
 }
